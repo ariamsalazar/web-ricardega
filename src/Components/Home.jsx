@@ -36,10 +36,19 @@ class Home extends React.Component {
         const { t } = this.props;
         return ( 
             <div className="general">
-                <Carousel auto widgets={[Buttons]}>
+                <Carousel widgets={[Buttons]} duration={700} className="carousel-beta">
+                    <Portfolio t={t} className="components"/>
+                    <About t={t} className="components"/>
+                </Carousel> 
+
+                <div>
+                    Footer
+                </div>
+               
+                {/* <Carousel auto widgets={[Buttons]}>
                     <Portfolio t={t}/>
                     <About t={t}/>
-                </Carousel>
+                </Carousel> */}
                 {/* <button type="button" onClick={this.handleSetLanguage('es')}>
                     Es
                 </button>

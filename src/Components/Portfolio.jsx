@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 class Portfolio extends React.Component {
     constructor(props) {
@@ -8,14 +8,29 @@ class Portfolio extends React.Component {
     render() { 
         const { t } = this.props;
         return ( 
-            <div style={{backgroundColor: 'tomato', height: '100%'}}>
-                Portfolio
-                <span> {t('home.title')}</span> 
-                <div className="fixed-left">
-                    Work
+            <Fragment >
+                <div className="master layout-1">
+                    {/* <span> {t('home.title')}</span>  */}
+                    <div className="logo-fixed"></div>
+                    <div className="header-fixed">Ricardega Grappih Designer</div>
+                    
+                    <div className="fixed-left">Work</div>
+                    <div className="line-left"></div>
+
+                    <div className="container-rows">
+                        <div class="rows-item a">1</div>
+                        <div class="rows-item b">1</div>
+                        <div class="rows-item c">1</div>
+                        <div class="rows-item a">1</div>
+                        <div class="rows-item b">1</div>
+                        <div class="rows-item c">1</div>
+                        <div class="rows-item a">1</div>
+                        <div class="rows-item b">1</div>
+                        <div class="rows-item c">1</div>
+                    </div>
+                    
                 </div>
-                <div className="line-left"></div>
-            </div>
+            </Fragment>
          );
     }
 }

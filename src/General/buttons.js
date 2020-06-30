@@ -17,7 +17,8 @@ const styles = {
     userSelect: 'none',
     position: 'absolute',
     font: '16px/30px sans-serif',
-    color: 'rgba(255,255,255,0.8)'
+    color: 'rgba(255,255,255,0.8)',
+    
   },
   left: {
     left: '0'

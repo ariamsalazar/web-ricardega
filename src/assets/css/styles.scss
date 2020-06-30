@@ -2,12 +2,12 @@
 $black: #000;
 $white: #fff;
 
-$font-main: 'Nunito Sans', sans-serif;
+$font-main: 'Montserrat', sans-serif;
 $font-big-size: 8rem;
 $font-middle-size: 2rem;
 
 body {
-    height: 100%;
+    height: auto;
     width: 100%;
     margin: 0 auto;
     font-family: $font-main;
@@ -16,7 +16,6 @@ body {
 
 .master{
     max-width: 1100px;
-    height: 100vh;
     background-color: pink;
     margin: 0 auto; 
 }
@@ -25,7 +24,27 @@ body {
     height: 100vh;
     background-color: yellow;
 }
+.carousel-beta{
+    overflow-y: scroll !important;
+    transform: none !important;
+    margin: 0 auto;
+}
 
+::-webkit-scrollbar {
+    width: 1px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent; 
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: transparent; 
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: transparent; 
+}
 .av {
     display: block;
     position: relative;
@@ -50,38 +69,62 @@ body {
     -ms-transform: translateX(-50%,-50%);
     transform: translateX(-50%,-50%);
 }
-
-.next-style{
+.logo-fixed{
+    position: fixed;
+    width: 60px;
+    z-index: 9999;
+    top: 30px;
+    left: 30px;
+    height: 60px;
+    background-image: url(../images/logo.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+.header-fixed{
     position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    height: 100px;
+    background-color: green;
+}
+.next-style{
+    position: fixed;
     right: -1rem;
     top: 50%;
     transform: translateY(-50%);
     transform: rotate(-90deg);
-    font-size: .8rem;
+    font-size: .7rem;
+    font-weight:700;
     cursor: pointer;
 }
 
 .prev-style{
-    position: absolute;
+    position: fixed;
     left: .5rem;
     top: 50%;
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     transform: rotate(-90deg);
-    font-size: .8rem;
+    font-size: .7rem;
     cursor: pointer;
+    font-weight:700;
+    color: $white;
 }
 
 .fixed-left{
-    position: absolute;
+    position: fixed;
     left: .5rem;
     text-align: center;
     transform: translateY(-50%);
     top: 50%;
-    font-size: .8rem;
+    font-size: .7rem;
     transform: rotate(-90deg);
     cursor: pointer;
+    font-weight: 700;
 }
 
 .fixed-right{
@@ -93,11 +136,13 @@ body {
     transform: translateY(-50%);
     top: 50%;
     transform: rotate(-90deg);
-    font-size: .8rem;
+    font-size: .7rem;
+    font-weight: 700;
+    color: $white;
 }
 
 .line-left{
-    position: absolute;
+    position: fixed;
     width: 5px;
     height: 50px;
     left: 0;
@@ -114,4 +159,19 @@ body {
     background-color: $white;
     transform: translateY(-52%);
     top: 51.5%;
+}
+
+.container-rows{
+    margin-top: 120px;
+    background-color: yellowgreen;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 32% 32% 32%;
+    grid-gap: 20px;
+    background-color: #fff;
+    color: #444;
+}
+.rows-item{
+    background-color: blue;
+    height: 250px;
 }
