@@ -1,36 +1,95 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import ModalProject from '../Components/Modal';
 
 class Portfolio extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = {
+            showModal: false
+        };
+        this.toggle = this.toggle.bind(this);
+       
     }
+
+    toggle() {
+        this.setState(prevState => ({
+          showModal: !prevState.showModal
+        }));
+    }
+
     render() { 
-        const { t } = this.props;
+        const { t } = this.props;  
+        console.log(this.state.showModal)
         return ( 
-            <Fragment >
+            <div style={{backgroundColor: 'white'}}>
+                {this.state.showModal && (
+                    <ModalProject
+                        show={this.state.showModal}
+                        handleClose={() => this.setState({ showModal: false })}
+                    />
+                )}
                 <div className="master layout-1">
                     {/* <span> {t('home.title')}</span>  */}
-                    <div className="logo-fixed"></div>
-                    <div className="header-fixed">Ricardega Grappih Designer</div>
+                    <div className="header-fixed">
+                        <span className="title-main av">
+                            <span className="bold-text">Ricardo Guevara</span> Graphic Designer 
+                        </span>
+                    </div>
                     
-                    <div className="fixed-left">Work</div>
-                    <div className="line-left"></div>
-
                     <div className="container-rows">
-                        <div class="rows-item a">1</div>
-                        <div class="rows-item b">1</div>
-                        <div class="rows-item c">1</div>
-                        <div class="rows-item a">1</div>
-                        <div class="rows-item b">1</div>
-                        <div class="rows-item c">1</div>
-                        <div class="rows-item a">1</div>
-                        <div class="rows-item b">1</div>
-                        <div class="rows-item c">1</div>
+                        <div className="rows-item p1" onClick={this.toggle}>
+                            <div className="overlay">
+                                <div className="text">Matilda's Bows</div>
+                            </div>
+                        </div>
+                        <div className="rows-item p2" onClick={this.toggle}>
+                            <div className="overlay">
+                                <div className="text">Proyecto #2</div>
+                            </div>
+                        </div>
+                        <div className="rows-item p3">
+                             <div className="overlay">
+                                <div className="text">Proyecto #2</div>
+                            </div>
+                        </div>
+                        <div className="rows-item p4">
+                             <div className="overlay">
+                                <div className="text">Proyecto #2</div>
+                            </div>
+                        </div>
+                        <div className="rows-item p5">
+                             <div className="overlay">
+                                <div className="text">Proyecto #2</div>
+                            </div>
+                        </div>
+                        <div className="rows-item p6">
+                             <div className="overlay">
+                                <div className="text">Proyecto #2</div>
+                            </div>
+                        </div>
+                        <div className="rows-item p1">
+                             <div className="overlay">
+                                <div className="text">Proyecto #2</div>
+                            </div>
+                        </div>
+                        <div className="rows-item p2">
+                             <div className="overlay">
+                                <div className="text">Proyecto #2</div>
+                            </div>
+                        </div>
+                        <div className="rows-item p3">
+                             <div className="overlay">
+                                <div className="text">Proyecto #2</div>
+                            </div>
+                        </div>
                     </div>
                     
                 </div>
-            </Fragment>
+                <div className="footer-main">
+                    Copyright All rigth reserved 2020. Ricardo Guevara 
+                </div>
+            </div>
          );
     }
 }

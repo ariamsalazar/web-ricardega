@@ -8,12 +8,9 @@ class About extends React.Component {
     render() { 
         const { t } = this.props;
         return ( 
-            <div style={{backgroundColor: 'red', height: '100%'}}>
+            <div style={{backgroundColor: 'black', height: '100%', color: 'white'}}>
                 About  <span> {t('home.title')}</span> 
-                <div className="fixed-right">
-                    About / Contact
-                </div>
-                <div className="line-right"></div>
+                
             </div>
          );
     }

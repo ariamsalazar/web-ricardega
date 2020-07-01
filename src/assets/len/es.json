@@ -1,7 +1,7 @@
 {
-    "home": {
-      "title": "Pagina Principal"
-    },
-    "hello": "Hola {name}!",
-    "fallback": "Bienvenida Mensaje"
-  }
+  "home": {
+    "title": "Disenador Grafico"
+  },
+  "work": "Proyectos",
+  "about": "Sobre mi / Contacto"
+}

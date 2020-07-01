@@ -36,29 +36,22 @@ class Home extends React.Component {
         const { t } = this.props;
         return ( 
             <div className="general">
-                <Carousel widgets={[Buttons]} duration={700} className="carousel-beta">
-                    <Portfolio t={t} className="components"/>
-                    <About t={t} className="components"/>
-                </Carousel> 
-
-                <div>
-                    Footer
-                </div>
-               
-                {/* <Carousel auto widgets={[Buttons]}>
+                {/* <Buttons t={t}></Buttons> */}
+                <Carousel widgets={[Buttons]} duration={500} className="carousel-beta">
                     <Portfolio t={t}/>
                     <About t={t}/>
-                </Carousel> */}
-                {/* <button type="button" onClick={this.handleSetLanguage('es')}>
-                    Es
-                </button>
-                <button type="button" onClick={this.handleSetLanguage('en')}>
-                    En
-                </button>  */}
+                </Carousel>    
             </div>
          );
     }
 }
+
+{/* <button type="button" onClick={this.handleSetLanguage('es')}>
+    Es
+</button>
+<button type="button" onClick={this.handleSetLanguage('en')}>
+    En
+</button>  */}
 
 Home.propTypes = {
     t: PropTypes.func.isRequired,

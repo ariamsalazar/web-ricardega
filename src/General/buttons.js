@@ -1,5 +1,5 @@
-import React from 'react'
-import propTypes from 'prop-types'
+import React, { Fragment } from 'react';
+import propTypes from 'prop-types';
 
 const styles = {
   wrapper: {
@@ -29,16 +29,31 @@ const styles = {
 }
 
 export default function Buttons (props) {
-  const { index, total, loop, prevHandler, nextHandler } = props
+  const { index, total, loop, prevHandler, nextHandler, t } = props;
   return (
-    <div style={styles.wrapper}>
-      { (loop || index !== 0) && (
-        <div className="prev-style" onClick={prevHandler}>Work</div>
-      )}
+    <Fragment>
       { (loop || index !== total - 1) && (
-        <div className="next-style" onClick={nextHandler}>About / Contact</div>
+        <div className="logo-fixed"></div>
       )}
-    </div>
+      <div style={styles.wrapper}>
+        { (loop || index !== 0) && (
+          <Fragment>
+            {/* <span> {leng('home.title')}</span>  */}
+            <div className="fixed-right">About / Contact   </div>
+            <div className="line-right"></div>
+            <div className="prev-style" onClick={prevHandler}>Work </div>
+          </Fragment>
+        )}
+        { (loop || index !== total - 1) && (
+          <Fragment>
+              <div className="fixed-left">Work </div>
+              <div className="line-left"></div>
+              <div className="next-style" onClick={nextHandler}>About / Contact</div>
+          </Fragment>
+          
+        )}
+      </div>
+    </Fragment>
   )
 }
 

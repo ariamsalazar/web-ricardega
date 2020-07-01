@@ -1,7 +1,7 @@
 {
   "home": {
-    "title": "Homepage"
+    "title": "Graphic Designer"
   },
-  "hello": "Hello {name}!",
-  "fallback": "Fallback message"
+  "work": "Work",
+  "about": "About / Contact"
 }

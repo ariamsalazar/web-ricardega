@@ -10,24 +10,31 @@ body {
     height: auto;
     width: 100%;
     margin: 0 auto;
-    font-family: $font-main;
+    font-family: $font-main !important;
     overflow-x: hidden;
+}
+
+html {
+    font-family: $font-main !important;
 }
 
 .master{
     max-width: 1100px;
-    background-color: pink;
     margin: 0 auto; 
+}
+.master.layout-1{
+    background-color: $white;
 }
 .general {
     width: 100%;
     height: 100vh;
-    background-color: yellow;
+    background-color: $black;
 }
 .carousel-beta{
-    overflow-y: scroll !important;
+    // overflow-y: scroll !important;
     transform: none !important;
     margin: 0 auto;
+    overflow-y: scroll !important;
 }
 
 ::-webkit-scrollbar {
@@ -70,12 +77,12 @@ body {
     transform: translateX(-50%,-50%);
 }
 .logo-fixed{
-    position: fixed;
-    width: 60px;
+    position: absolute;
+    width: 50px;
+    height: 50px;
     z-index: 9999;
-    top: 30px;
-    left: 30px;
-    height: 60px;
+    top: 2rem;
+    left: 2.6rem;
     background-image: url(../images/logo.png);
     background-repeat: no-repeat;
     background-size: contain;
@@ -87,8 +94,7 @@ body {
     left: 0;
     width: 100%;
     text-align: center;
-    height: 100px;
-    background-color: green;
+    height: 7.5rem;
 }
 .next-style{
     position: fixed;
@@ -111,7 +117,7 @@ body {
     transform: rotate(-90deg);
     font-size: .7rem;
     cursor: pointer;
-    font-weight:700;
+    font-weight: 500;
     color: $white;
 }
 
@@ -137,18 +143,18 @@ body {
     top: 50%;
     transform: rotate(-90deg);
     font-size: .7rem;
-    font-weight: 700;
+    font-weight: 500;
     color: $white;
 }
 
 .line-left{
-    position: fixed;
+    position: absolute;
     width: 5px;
     height: 50px;
     left: 0;
     background-color: $black;
-    transform: translateY(-52%);
-    top: 51.5%;
+    transform: translateY(-35%);
+    top: 50%;
 }
 
 .line-right{
@@ -162,16 +168,125 @@ body {
 }
 
 .container-rows{
-    margin-top: 120px;
-    background-color: yellowgreen;
+    margin-top: 0;
+    padding-top: 150px;
     width: 100%;
     display: grid;
-    grid-template-columns: 32% 32% 32%;
-    grid-gap: 20px;
+    grid-template-columns: 30% 30% 30%;
+    grid-gap: 55px;
     background-color: #fff;
     color: #444;
 }
 .rows-item{
-    background-color: blue;
-    height: 250px;
+    cursor: pointer;
+    height: 300px;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
+.rows-item.p1{
+    background-image: url(../images/p1.jpg);
+}
+.rows-item.p2{
+    background-image: url(../images/p2.jpg);
+}
+.rows-item.p3{
+    background-image: url(../images/p3.jpg);
+}
+.rows-item.p4{
+    background-image: url(../images/p4.jpg);
+}
+.rows-item.p5{
+    background-image: url(../images/p5.jpg);
+}
+.rows-item.p6{
+    background-image: url(../images/p6.jpg);
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: rgba(0,0,0,0.75);
+}
+  
+.rows-item:hover .overlay {
+    opacity: 1;
+}
+.text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-weight: 300;
+    width: 100%;
+    letter-spacing: 2px;
+    font-size: 1.1rem;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.title-main{
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    color: $black;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-align: center;
+}
+.bold-text{
+    font-weight: 600;
+}
+.modal-backdrop.show {
+    opacity: .8 !important;
+}
+
+.modal-dialog {
+    max-width: 750px !important;
+    margin: 8rem auto !important; 
+    border-radius: 0 !important;
+    position: initial !important;
+}
+.modal-content{
+    position: initial !important;
+    height: 3370px;
+    background-color: transparent !important;
+}
+.modalContent{
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 100% !important;
+    background-image: url(../images/11.png) !important;
+}
+.btn-close{
+    position: fixed;
+    right: 30px;
+    top: 30px;
+    background-color: $white;
+    border-radius: 100%;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    z-index: 999999999999999;
+    background-position: center;
+    background-size: 15px;
+    background-image: url(../images/close.png);
+    background-repeat: no-repeat;
+}
+
+.footer-main{
+    text-align: center;
+    color: $black;
+    padding: 50px 0;
+    font-size: .86rem;
+    font-weight: 300;
+}
+  
