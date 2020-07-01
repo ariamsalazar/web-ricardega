@@ -35,6 +35,9 @@ export default function Buttons (props) {
       { (loop || index !== total - 1) && (
         <div className="logo-fixed"></div>
       )}
+      { (loop || index !== 0) && (
+        <div className="logo-fixed white"></div>
+      )}
       <div style={styles.wrapper}>
         { (loop || index !== 0) && (
           <Fragment>

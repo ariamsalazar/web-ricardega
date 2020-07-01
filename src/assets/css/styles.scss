@@ -88,6 +88,9 @@ html {
     background-size: contain;
     background-position: center;
 }
+.logo-fixed.white{
+    background-color: yellow;
+}
 .header-fixed{
     position: absolute;
     top: 0;
@@ -169,7 +172,7 @@ html {
 
 .container-rows{
     margin-top: 0;
-    padding-top: 150px;
+    padding-top: 10rem;
     width: 100%;
     display: grid;
     grid-template-columns: 30% 30% 30%;
@@ -242,6 +245,9 @@ html {
     letter-spacing: 2px;
     text-align: center;
 }
+.title-main.white{
+    color: $white;
+}
 .bold-text{
     font-weight: 600;
 }
@@ -282,6 +288,96 @@ html {
     background-repeat: no-repeat;
 }
 
+.container-about {
+    width: 100%;
+    height: calc(100vh - 7.5rem);
+    margin-top: 7.5rem;
+    background-color: $black;
+}
+.container-about .picture{
+    height: 100%;
+    width: 40%;
+    display: inline-block;
+    background-image: url(../images/retrato.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    vertical-align: top;
+}
+.container-about .about{
+    height: 100%;
+    vertical-align: top;
+    width: 60%;
+    display: inline-block;
+}
+.container-about .about .text-big-h{
+    color: #999;
+    font-weight: 700;
+    opacity: .25;
+    font-size: 8rem;
+    text-align: left;
+    letter-spacing: 10px;
+    width: 100%;
+    display: inline-block;
+}
+.about .text-about{
+    font-size: .85rem;
+    width: 55%;
+    opacity: .62;
+    color: $white;
+    font-weight: 400;
+    text-align: left;
+    display: inline-block;
+    margin-top: 0px;
+    line-height: 22px;
+}
+.title-middle{
+    display: inline-block;
+    margin-top: 20px;
+    text-align: left;
+    font-size: 1.8rem;
+    width: 100%;
+    color: #999;
+    font-weight: 700;
+    opacity: .25;
+    letter-spacing: 2px;
+}
+.title-small{
+    font-size: .85rem;
+    opacity: .62;
+    color: $white;
+    margin-top: -5px;
+    width: 100%;
+    font-weight: 400;
+    text-align: left;
+    display: inline-block;
+}
+.rr{
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    margin-top: 8px;
+    margin-right: 12px;
+    cursor: pointer;
+    transition: 0.4s;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+    .rr.r1{
+        background-image: url(../images/instagram.png);
+    }
+    .rr.r2{
+        background-image: url(../images/dribble.png);
+    }
+    .rr.r3{
+        background-image: url(../images/behance.png);
+    }
+
+    .rr:hover{
+        opacity: .5;
+        transition: 0.4s;
+    }
 .footer-main{
     text-align: center;
     color: $black;
