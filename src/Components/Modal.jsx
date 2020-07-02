@@ -23,10 +23,9 @@ class ModalProject extends React.Component {
     }
 
     render() { 
-        var { handleClose } = this.props;
-       
+        var { handleClose, project } = this.props;
         return ( 
-            <Modal isOpen={handleClose} toggle={handleClose}  className="modalContent">
+            <Modal isOpen={handleClose} toggle={handleClose} className="modalContent" style={{backgroundImage: 'url(./project_img/'+project+')'}}>
                 <span className="btn-close" onClick={handleClose}></span>
             </Modal>    
         );

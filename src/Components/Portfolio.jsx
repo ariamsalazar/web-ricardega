@@ -1,13 +1,20 @@
 import React from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import ModalProject from '../Components/Modal';
+import firebase from "../firebase-config.js";
 
 class Portfolio extends React.Component {
     constructor(props) {
         super(props);
+
+        this.ref = firebase.firestore().collection('projects');
+        this.unsubscribe = null;
+
         this.state = {
-            showModal: false
+            showModal: false,
+            projects: [],
+            projectName: ''
         };
+
         this.toggle = this.toggle.bind(this);
        
     }
@@ -18,14 +25,36 @@ class Portfolio extends React.Component {
         }));
     }
 
+    onCollectionUpdate = (querySnapshot) => {
+        const projects = [];
+        querySnapshot.forEach((doc) => {
+          const { name, thumbnail, project_img } = doc.data();
+          projects.push({
+            key: doc.id,
+            doc, // DocumentSnapshot
+            name,
+            thumbnail,
+            project_img,
+          });
+        });
+        this.setState({
+            projects
+       });
+    }
+    
+    componentDidMount() {
+        this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate);
+    }
+  
     render() { 
         const { t } = this.props;  
-        console.log(this.state.showModal)
         return ( 
-            <div style={{backgroundColor: 'white'}}>
+            <div style={{backgroundColor: '#fff'}}>
+                {/* Project Modal  */}
                 {this.state.showModal && (
                     <ModalProject
                         show={this.state.showModal}
+                        project={this.state.projectName}
                         handleClose={() => this.setState({ showModal: false })}
                     />
                 )}
@@ -36,53 +65,20 @@ class Portfolio extends React.Component {
                             <span className="bold-text">Ricardo Guevara</span> Graphic Designer 
                         </span>
                     </div>
-                    
+                    {/* Grid Projects */}
                     <div className="container-rows">
-                        <div className="rows-item p1" onClick={this.toggle}>
-                            <div className="overlay">
-                                <div className="text">Matilda's Bows</div>
+                        {this.state.projects.map((pro, i) =>
+                            <div className="rows-item" 
+                            onClick={() => { this.setState({projectName: pro.project_img, showModal: true }); } 
+                            }
+                            style={{backgroundImage: 'url(./projects/'+pro.thumbnail+')'}}
+                            key={i}
+                            >
+                                <div className="overlay">
+                                <div className="text">{pro.name}</div>
+                                </div>
                             </div>
-                        </div>
-                        <div className="rows-item p2" onClick={this.toggle}>
-                            <div className="overlay">
-                                <div className="text">Proyecto #2</div>
-                            </div>
-                        </div>
-                        <div className="rows-item p3">
-                             <div className="overlay">
-                                <div className="text">Proyecto #2</div>
-                            </div>
-                        </div>
-                        <div className="rows-item p4">
-                             <div className="overlay">
-                                <div className="text">Proyecto #2</div>
-                            </div>
-                        </div>
-                        <div className="rows-item p5">
-                             <div className="overlay">
-                                <div className="text">Proyecto #2</div>
-                            </div>
-                        </div>
-                        <div className="rows-item p6">
-                             <div className="overlay">
-                                <div className="text">Proyecto #2</div>
-                            </div>
-                        </div>
-                        <div className="rows-item p1">
-                             <div className="overlay">
-                                <div className="text">Proyecto #2</div>
-                            </div>
-                        </div>
-                        <div className="rows-item p2">
-                             <div className="overlay">
-                                <div className="text">Proyecto #2</div>
-                            </div>
-                        </div>
-                        <div className="rows-item p3">
-                             <div className="overlay">
-                                <div className="text">Proyecto #2</div>
-                            </div>
-                        </div>
+                        )}
                     </div>
                     
                 </div>
