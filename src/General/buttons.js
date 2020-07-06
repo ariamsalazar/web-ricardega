@@ -33,10 +33,10 @@ export default function Buttons (props) {
   return (
     <Fragment>
       { (loop || index !== total - 1) && (
-        <div className="logo-fixed"></div>
+        <div className="logo-fixed no-mobile"></div>
       )}
       { (loop || index !== 0) && (
-        <div className="logo-fixed white"></div>
+        <div className="logo-fixed white no-mobile"></div>
       )}
       <div style={styles.wrapper}>
         { (loop || index !== 0) && (

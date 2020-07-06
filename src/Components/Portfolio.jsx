@@ -61,7 +61,8 @@ class Portfolio extends React.Component {
                 <div className="master layout-1">
                     {/* <span> {t('home.title')}</span>  */}
                     <div className="header-fixed">
-                        <span className="title-main av">
+                        <div className="logo-fixed ah-mob mobile"></div>
+                        <span className="title-main av no-mobile">
                             <span className="bold-text">Ricardo Guevara</span> Graphic Designer 
                         </span>
                     </div>

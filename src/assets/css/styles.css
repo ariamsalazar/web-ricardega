@@ -1,0 +1,426 @@
+body {
+  height: auto;
+  width: 100%;
+  margin: 0 auto;
+  font-family: "Montserrat", sans-serif !important;
+  overflow-x: hidden;
+}
+
+html {
+  font-family: "Montserrat", sans-serif !important;
+}
+
+.master {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.master.layout-1 {
+  background-color: #fff;
+}
+
+.general {
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+}
+
+.carousel-beta {
+  -webkit-transform: none !important;
+          transform: none !important;
+  margin: 0 auto;
+  overflow-y: scroll !important;
+}
+
+::-webkit-scrollbar {
+  width: 1px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: transparent;
+}
+
+.av {
+  display: block;
+  position: relative;
+  top: 50% !important;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.ah {
+  display: block;
+  margin-left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.ac {
+  display: block;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translateX(-50%, -50%);
+}
+
+.logo-fixed {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  z-index: 9999;
+  top: 2rem;
+  left: 2.6rem;
+  background-image: url(../images/logo.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.logo-fixed.white {
+  background-image: url(../images/logo-white.png);
+}
+
+.header-fixed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  height: 7.5rem;
+}
+
+.next-style {
+  position: fixed;
+  right: -1rem;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  font-size: .7rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.prev-style {
+  position: fixed;
+  left: .5rem;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  font-size: .7rem;
+  cursor: pointer;
+  font-weight: 500;
+  color: #fff;
+}
+
+.fixed-left {
+  position: fixed;
+  left: .5rem;
+  text-align: center;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  top: 50%;
+  font-size: .7rem;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.fixed-right {
+  cursor: pointer;
+  position: absolute;
+  right: -1rem;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  top: 50%;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  font-size: .7rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+.line-left {
+  position: absolute;
+  width: 5px;
+  height: 50px;
+  left: 0;
+  background-color: #000;
+  -webkit-transform: translateY(-35%);
+          transform: translateY(-35%);
+  top: 50%;
+}
+
+.line-right {
+  position: absolute;
+  width: 5px;
+  right: 0;
+  height: 50px;
+  background-color: #fff;
+  -webkit-transform: translateY(-52%);
+          transform: translateY(-52%);
+  top: 51.5%;
+}
+
+.container-rows {
+  margin-top: 0;
+  padding-top: 10rem;
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 30% 30% 30%;
+      grid-template-columns: 30% 30% 30%;
+  grid-gap: 55px;
+  background-color: #fff;
+  color: #444;
+}
+
+.rows-item {
+  cursor: pointer;
+  height: 300px;
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.rows-item.p1 {
+  background-image: url(../images/p1.jpg);
+}
+
+.rows-item.p2 {
+  background-image: url(../images/p2.jpg);
+}
+
+.rows-item.p3 {
+  background-image: url(../images/p3.jpg);
+}
+
+.rows-item.p4 {
+  background-image: url(../images/p4.jpg);
+}
+
+.rows-item.p5 {
+  background-image: url(../images/p5.jpg);
+}
+
+.rows-item.p6 {
+  background-image: url(../images/p6.jpg);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.rows-item:hover .overlay {
+  opacity: 1;
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-weight: 400;
+  width: 100%;
+  letter-spacing: 2px;
+  font-size: 1.1rem;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.title-main {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  color: #000;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.title-main.white {
+  color: #fff;
+}
+
+.bold-text {
+  font-weight: 600;
+}
+
+.modal-backdrop.show {
+  opacity: .8 !important;
+}
+
+.modal-dialog {
+  max-width: 750px !important;
+  margin: 8rem auto !important;
+  border-radius: 0 !important;
+  position: initial !important;
+}
+
+.modal-content {
+  position: initial !important;
+  height: 3370px;
+  background-color: transparent !important;
+}
+
+.modalContent {
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: 100% !important;
+}
+
+.btn-close {
+  position: fixed;
+  right: 30px;
+  top: 30px;
+  background-color: #fff;
+  border-radius: 100%;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  z-index: 999999999999999;
+  background-position: center;
+  background-size: 15px;
+  background-image: url(../images/close.png);
+  background-repeat: no-repeat;
+}
+
+.container-about {
+  width: 100%;
+  height: calc(100vh - 7.5rem);
+  margin-top: 7.5rem;
+  background-color: #000;
+}
+
+.container-about .picture {
+  height: 100%;
+  width: 40%;
+  display: inline-block;
+  background-image: url(../images/retrato.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  vertical-align: top;
+}
+
+.container-about .about {
+  height: 100%;
+  vertical-align: top;
+  width: 60%;
+  display: inline-block;
+}
+
+.container-about .about .text-big-h {
+  color: #999;
+  font-weight: 700;
+  opacity: .25;
+  font-size: 8rem;
+  text-align: left;
+  letter-spacing: 10px;
+  width: 100%;
+  display: inline-block;
+}
+
+.about .text-about {
+  font-size: .85rem;
+  width: 55%;
+  opacity: .62;
+  color: #fff;
+  font-weight: 400;
+  text-align: left;
+  display: inline-block;
+  margin-top: 0px;
+  line-height: 22px;
+}
+
+.title-middle {
+  display: inline-block;
+  margin-top: 20px;
+  text-align: left;
+  font-size: 1.8rem;
+  width: 100%;
+  color: #999;
+  font-weight: 700;
+  opacity: .25;
+  letter-spacing: 2px;
+}
+
+.title-small {
+  font-size: .85rem;
+  opacity: .62;
+  color: #fff;
+  margin-top: -5px;
+  width: 100%;
+  font-weight: 400;
+  text-align: left;
+  display: inline-block;
+}
+
+.rr {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  margin-top: 8px;
+  margin-right: 12px;
+  cursor: pointer;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.rr.r1 {
+  background-image: url(../images/instagram.png);
+}
+
+.rr.r2 {
+  background-image: url(../images/dribble.png);
+}
+
+.rr.r3 {
+  background-image: url(../images/behance.png);
+}
+
+.rr:hover {
+  opacity: .5;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.footer-main {
+  text-align: center;
+  color: #000;
+  padding: 50px 0;
+  font-size: .86rem;
+  font-weight: 300;
+}
+/*# sourceMappingURL=styles.css.map */

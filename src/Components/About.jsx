@@ -10,7 +10,7 @@ class About extends React.Component {
         return ( 
             <div className="layout-2">
                 {/* About  <span> {t('home.title')}</span>  */}
-                <div className="header-fixed">
+                <div className="header-fixed black">
                     <span className="title-main white av">
                         <span className="bold-text">Ricardo Guevara</span> Graphic Designer 
                     </span>
@@ -27,7 +27,9 @@ class About extends React.Component {
 
                         <span className="title-middle">Get in touch</span>
                         <span className="title-small">ricardega@gmail.com</span>
-                        <a className="rr r1" href="/"></a><a className="rr r2" href="/"></a><a className="rr r3" href="/"></a>
+                        <div className="container-rr">
+                            <a className="rr r1" href="/"></a><a className="rr r2" href="/"></a><a className="rr r3" href="/"></a>
+                        </div>
                     </div>
                 </div>
             </div>
