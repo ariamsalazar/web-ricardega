@@ -382,6 +382,22 @@ html {
         opacity: .5;
         transition: 0.4s;
     }
+    .first-part{
+        background-color: pink;
+        height: 50vh;
+        width: 100%;
+        display: inline-block;
+        position: relative;
+    }
+    .first-part.second{
+        background-color: #c3c3c3;
+        overflow-y: scroll !important;
+    }
+    .first-part .log-out{
+        position: absolute;
+        right: 2rem;
+        top: 2rem;
+    }
 
 .footer-main{
     text-align: center;

@@ -46,13 +46,6 @@ class Home extends React.Component {
     }
 }
 
-{/* <button type="button" onClick={this.handleSetLanguage('es')}>
-    Es
-</button>
-<button type="button" onClick={this.handleSetLanguage('en')}>
-    En
-</button>  */}
-
 Home.propTypes = {
     t: PropTypes.func.isRequired,
 };
