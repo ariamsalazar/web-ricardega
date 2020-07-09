@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import ModalProject from '../Components/Modal';
-import firebase from "../firebase-config.js";
+import firebase, { storage } from "../firebase-config.js";
 
 class Portfolio extends React.Component {
     constructor(props) {
@@ -16,7 +16,8 @@ class Portfolio extends React.Component {
         };
 
         this.toggle = this.toggle.bind(this);
-       
+        this.onlyGetImage = this.onlyGetImage.bind(this);
+
     }
 
     toggle() {
@@ -41,7 +42,15 @@ class Portfolio extends React.Component {
             projects
        });
     }
-    
+    //Get ONLY One picture
+    onlyGetImage(img, ix){
+        let srcU = "";
+        storage.ref().child("/images/"+img).getDownloadURL().then((url) => {
+            srcU= '#img-'+ix;
+            document.querySelector(srcU).setAttribute("src", url)
+            }).catch((error) => {
+        })
+    }
     componentDidMount() {
         this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate);
     }
@@ -69,16 +78,20 @@ class Portfolio extends React.Component {
                     {/* Grid Projects */}
                     <div className="container-rows">
                         {this.state.projects.map((pro, i) =>
+                        <Fragment>
+                            {this.onlyGetImage(pro.thumbnail, i)}
                             <div className="rows-item" 
                             onClick={() => { this.setState({projectName: pro.project_img, showModal: true }); } 
                             }
-                            style={{backgroundImage: 'url(./projects/'+pro.thumbnail+')'}}
                             key={i}
                             >
+                                <img className="pic-pro" id={`img-${i}`} src=""/>
                                 <div className="overlay">
                                 <div className="text">{pro.name}</div>
                                 </div>
                             </div>
+                        </Fragment>
+                        //  style={{backgroundImage: 'url(./projects/'+pro.thumbnail+')'}}
                         )}
                     </div>
                     

@@ -191,6 +191,10 @@ html {
     background-repeat: no-repeat;
     background-size: cover;
 }
+.rows-item .pic-pro{
+    width: 100%;
+    height: 100%;
+}
 .rows-item.p1{
     background-image: url(../images/p1.jpg);
 }
@@ -267,14 +271,12 @@ html {
 }
 .modal-content{
     position: initial !important;
-    height: 3370px;
+    height: auto;
     background-color: transparent !important;
 }
-.modalContent{
-    background-repeat: no-repeat !important;
-    background-position: center !important;
-    background-size: 100% !important;
-    // background-image: url(../images/11.png) !important;
+.modalContent .pro-img-complete{
+    height: 100%;
+    width: 100%;
 }
 .btn-close{
     position: fixed;

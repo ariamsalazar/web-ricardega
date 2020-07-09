@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import firebase from '../firebase-config';
 import { storage } from "../firebase-config";
 import NewProject from './NewProject';
-
+let array_new = [];
 class Cpanel extends React.Component {
     constructor(props) {
         super(props);
@@ -13,10 +13,11 @@ class Cpanel extends React.Component {
             images: [],
             name: '',
             date: '',
-            thumbnail: ''
+            thumbnail: '',
+            srcImage: ''
         }
-
         this.delete = this.delete.bind(this);
+        this.onlyGetImage = this.onlyGetImage.bind(this);
     }
     // Log Out Function
     logout(){
@@ -37,7 +38,8 @@ class Cpanel extends React.Component {
         });
         this.setState({
             projects
-       });
+        });
+        // this.getImages(projects);
     }
     
     // Delete Project Function
@@ -49,49 +51,31 @@ class Cpanel extends React.Component {
           console.error("Error removing document: ", error);
         });
     }
-
-    getImage() {
-        let { state } = this;
-        // var listRef = firebase.storage().ref().child("/images");
-        // listRef.listAll().then(function(res) {
-        // state.images = res.items;state.downloadURLs = {};this.setState(state);
-        //         res.items.forEach(function(itemRef) {itemRef.getDownloadURL().then(url => {
-        //         // state.downloadURLs[itemRef.name] = url;state.downloadURLs.push(url);this.setState(state);
-        //         alert(url);
-        //         console.log(url);
-        //         document.querySelector('img').src = url;
-        //        });
-        //    });
-        // })
-        // .catch(function(error) {
-        // // Uh-oh, an error occurred!
-        // });
-        // Create a reference under which you want to list
-        var listRef = firebase.storage().ref().child("/images");
-
-        // Find all the prefixes and items.
-        listRef.listAll().then(function(res) {
-        res.prefixes.forEach(function(folderRef) {
-            // All the prefixes under listRef.
-            // You may call listAll() recursively on them.
-        });
-        res.items.forEach(function(itemRef) {
-            // All the items under listRef.
-            console.log(itemRef);
-        });
-        }).catch(function(error) {
-        // Uh-oh, an error occurred!
-        });
+    getImages(projects){
+        this.state.projects.map((pro, i) => (
+            storage.ref().child("/images/"+pro.thumbnail).getDownloadURL().then((url) => {
+                // state[image] = url
+                this.setState({
+                    images: [...this.state.images, url]
+                })
+              }).catch((error) => {
+            })
+        ))
+    }
+    //Get ONLY One picture
+    onlyGetImage(img, ix){
+        let srcU = "";
+        storage.ref().child("/images/"+img).getDownloadURL().then((url) => {
+            srcU= '#img'+ix;
+            document.querySelector(srcU).setAttribute("src", url)
+            }).catch((error) => {
+        })
     }
     // Component Did Mount Function
     componentDidMount() {
         this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate);
-        this.getImage();
-
     }
-    render() { 
-        let images = this.state.images;
-        console.log(images);
+    render() {
         return ( 
         <div>
             {/* First Component */}
@@ -103,23 +87,18 @@ class Cpanel extends React.Component {
             </div>
             {/* Second Component */}
             <div className="first-part second">
-                {/* {this.state.projects.map((pro, i) =>
+                {this.state.projects.map((pro, i) =>
                   <tr key={i}>
+                    {this.onlyGetImage(pro.thumbnail, i)}
                     <div className="back-pro">
-                        A
+                        <img alt="" width="60" id={`img${i}`} src=""/>
                     </div>
                     <td>{pro.name}</td>---
                     <td>{pro.thumbnail}</td>
                     <button onClick={this.delete.bind(this, pro.key)} className="btn btn-danger">Delete</button>
                   </tr>
-                )} */}
-                <div>
-
-                   
-    
-                </div>
+                )}
             </div>
-            
         </div> 
         );
     }
