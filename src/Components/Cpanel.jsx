@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import firebase from '../firebase-config';
 import { storage } from "../firebase-config";
 import NewProject from './NewProject';
-let array_new = [];
+
 class Cpanel extends React.Component {
     constructor(props) {
         super(props);
-        this.ref = firebase.firestore().collection('projects');
+        //Get DB Instance
+        this.ref = firebase.firestore().collection('projects').orderBy('thumbnail', 'desc');
         this.unsubscribe = null;
         this.state = { 
             projects: [],
@@ -27,13 +28,14 @@ class Cpanel extends React.Component {
     onCollectionUpdate = (querySnapshot) => {
         const projects = [];
         querySnapshot.forEach((doc) => {
-          const { name, thumbnail, project_img } = doc.data();
+          const { name, thumbnail, project_img, new_date } = doc.data();
           projects.push({
             key: doc.id,
             doc, // DocumentSnapshot
             name,
             thumbnail,
             project_img,
+            new_date
           });
         });
         this.setState({
@@ -76,28 +78,32 @@ class Cpanel extends React.Component {
         this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate);
     }
     render() {
+        console.log(this.state.projects);
+        const { projects } = this.state;
         return ( 
         <div>
             {/* First Component */}
             <div className="first-part">
-                <h1>You are Logge In</h1>
-                <button onClick={this.logout} className="log-out">Log Out</button>
+                <div className="logo-admin"></div>
+                <button onClick={this.logout} className="log-in out">Logout</button>
                 {/* Form New Project */}
                 <NewProject/>
             </div>
             {/* Second Component */}
             <div className="first-part second">
-                {this.state.projects.reverse().map((pro, i) =>
-                  <tr key={i}>
-                    {this.onlyGetImage(pro.thumbnail, i)}
-                    <div className="back-pro">
-                        <img alt="" width="60" id={`img${i}`} src=""/>
-                    </div>
-                    <td>{pro.name}</td>---
-                    <td>{pro.thumbnail}</td>
-                    <button onClick={this.delete.bind(this, pro.key)} className="btn btn-danger">Delete</button>
-                  </tr>
-                )}
+                <div className="container-admin">
+                    {projects.map((pro, i) => 
+                        <div className="project-admin">
+                             {this.onlyGetImage(pro.thumbnail, i)}
+                            <button className="btn-option" onClick={this.delete.bind(this, pro.key)}>Delete</button>
+                            <button className="btn-option">Edit</button>
+                            <img className="img-admin" id={`img${i}`} src="" />
+                            <span className="av name-admin">{pro.name}</span>
+                            <span className="av name-admin date">- updated on: {pro.new_date}</span>
+                        </div>
+                    )
+                    }
+                </div>
             </div>
         </div> 
         );

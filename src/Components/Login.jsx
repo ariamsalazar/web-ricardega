@@ -27,8 +27,9 @@ class LogIn extends Component {
     }
     render() { 
         return ( 
-            <div>
-                <form>
+            <div className="general-admin">
+                <form className="form-admin">
+                    <div className="logo-form ah"></div>
                     <input
                     type="email"
                     id="email"
@@ -36,6 +37,7 @@ class LogIn extends Component {
                     placeholder="Email"
                     onChange={this.handleChange}
                     value={this.state.email}
+                    className="input-form-admin"
                     />
                     <input
                     type="password"
@@ -44,8 +46,9 @@ class LogIn extends Component {
                     placeholder="Password"
                     onChange={this.handleChange}
                     value={this.state.password}
+                    className="input-form-admin"
                     />
-                    <button onClick={this.login}>Log In</button>
+                    <button onClick={this.login} className="log-in">Login</button>
                 </form>
             </div>
         );

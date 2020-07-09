@@ -55,7 +55,7 @@ html {
 .av {
     display: block;
     position: relative;
-    top:50% !important;
+    top: 50% !important;
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
@@ -322,6 +322,10 @@ html {
     opacity: 0.75;
     transition: 0.3s;
 }
+.spin{
+    margin-top: 50px !important;
+    margin-left: 20px !important;
+}
 
 .container-about {
     width: 100%;
@@ -414,14 +418,15 @@ html {
         transition: 0.4s;
     }
     .first-part{
-        background-color: pink;
+        background-color: $white;
         height: 50vh;
         width: 100%;
         display: inline-block;
         position: relative;
     }
     .first-part.second{
-        background-color: #c3c3c3;
+        background-color: $black;
+        padding: 10px 0;
         overflow-y: scroll !important;
     }
     .first-part .log-out{
@@ -429,12 +434,147 @@ html {
         right: 2rem;
         top: 2rem;
     }
+    .first-part.second .project-admin{
+        width: 90%;
+        margin-top: 2rem;
+        margin-left: 3rem;
+        height: auto;
+    }
+    .project-admin .img-admin{
+        width: 45px;
+        height: 45px;
+        display: inline-block;
+        margin-left: 10px;
+    }
+    .name-admin{
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 20px;
+        color: $white;
+        font-weight: 600;
+        margin-top: 1.2rem;
+        letter-spacing: 1px;
+        font-size: .87rem;
+    }
+    .name-admin.date{
+        font-weight: 400;
+        margin-left: 5px;
+    }
     .back-pro{
         height: 100px;
         width: 100px;
-        background-color: yellow;
     }
-
+//Cpanel
+.general-admin{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+.form-admin{
+    width: 22rem;
+    height: auto;
+    margin-left: 50%;
+    position: absolute;
+    top: 14rem;
+    transform: translateX(-50%);
+}
+.form-admin .logo-form{
+    background-image: url(../images/logo.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+}
+.form-admin .input-form-admin{
+    width: 100%;
+    border-radius: 20px;
+    outline: none;
+    background-color: $black;
+    color: rgba(255,255,255,0.85);
+    border: none;
+    padding: 6px 20px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+    text-align: left;
+}
+.log-in {
+    background-color: #fff;
+    border: 2px solid #000;
+    color: #000;
+    font-weight: 500;
+    text-align: center;
+    width: 22%;
+    font-size: .85rem;
+    margin-top: 10px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.log-in.out{
+    width: auto;
+    position: absolute;
+    right: 2rem;
+    padding: 5px 20px;
+    top: 1.5rem;
+}
+.btn-option{
+    background-color: $black;
+    border-radius: 20px;
+    width: auto;
+    padding: 5px 25px;
+    font-size: .85rem;
+    color: $white;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+    border: 2px solid $white;
+    margin-right: 22px;
+    transition: 0.2s;
+}
+.btn-option:hover, .btn-option:focus{
+    background-color: $white;
+    outline: none !important;
+    color: $black;
+    transition: 0.2s;
+}
+.log-in:hover, .log-in:focus{
+    background-color: $black;
+    color: $white;
+    transition: 0.3s;
+    outline: none !important;
+}
+.input-form-admin::-webkit-input-placeholder { /* Edge */
+    color: rgba(255,255,255,0.85);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+ 
+.input-form-admin:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: rgba(255,255,255,0.85);
+    font-size: 0.9rem;
+    font-weight: 500;
+}  
+.input-form-admin::placeholder {
+    color: rgba(255,255,255,0.85);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+.first-part .logo-admin{
+    position: absolute;
+    left: 2rem;
+    top: 1.5rem;
+    background-image: url(../images/logo.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 50px;
+    height: 50px;
+}
 .footer-main{
     text-align: center;
     color: $black;

@@ -1,18 +1,19 @@
 import React, { Fragment } from 'react';
 import ModalProject from '../Components/Modal';
 import firebase, { storage } from "../firebase-config.js";
+import Skeleton from 'react-loading-skeleton';
 
 class Portfolio extends React.Component {
     constructor(props) {
         super(props);
-
-        this.ref = firebase.firestore().collection('projects');
+        //Get DB Instance
+        this.ref = firebase.firestore().collection('projects').orderBy('thumbnail', 'desc');
         this.unsubscribe = null;
-
         this.state = {
             showModal: false,
             projects: [],
-            projectName: ''
+            projectName: '',
+            loading: ''
         };
 
         this.toggle = this.toggle.bind(this);
@@ -38,7 +39,6 @@ class Portfolio extends React.Component {
             project_img,
           });
         });
-        projects.reverse();
         this.setState({
             projects
        });
@@ -85,8 +85,8 @@ class Portfolio extends React.Component {
                             onClick={() => { this.setState({projectName: pro.project_img, showModal: true }); } 
                             }
                             key={i}
-                            >
-                                <img className="pic-pro" id={`img-${i}`} src=""/>
+                            >   
+                                <img className="pic-pro" id={`img-${i}`} src=""/> 
                                 <div className="overlay">
                                 <div className="text">{pro.name}</div>
                                 </div>

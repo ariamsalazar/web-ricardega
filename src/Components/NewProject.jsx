@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import firebase, { storage } from "../firebase-config";
+import ReactLoading from 'react-loading';
 
 function NewProject() {
     // Declaración de una variable de estado que llamaremos "count"
@@ -8,6 +9,7 @@ function NewProject() {
     const [url, setUrl] = useState("");
     const [name, setName] = useState("");
     const [date, setDate] = useState("");
+    const [loading, setLoading] = useState(false);
     // this.ref = firebase.firestore().collection('projects');
 
     const handleChange = e => {
@@ -29,9 +31,11 @@ function NewProject() {
     const handleFireBaseUpload = (e) => {
         e.preventDefault();
         var new_date = getCurrentDate();
-        setDate(new_date);
         var thumbnail = image.name;
-        var project_img = image_project.name
+        var project_img = image_project.name;
+
+        setDate(new_date);
+        setLoading(true);
         //Add Project To DB Firebase
         firebase.firestore().collection('projects').add({
             name,
@@ -46,6 +50,9 @@ function NewProject() {
               date: ''
             });
             console.log('Agrego >> '+docRef);
+            setName(""); 
+            setImage("");
+            setImageProject("");
             // this.props.history.push("/")
           })
           .catch((error) => {
@@ -67,7 +74,7 @@ function NewProject() {
             .child(image.name)
             .getDownloadURL()
             .then(fireBaseUrl => {
-                setUrl(fireBaseUrl);
+                // setUrl(fireBaseUrl);
             })
         })
         const uploadTask2 = storage.ref(`/images/${image_project.name}`).put(image_project);
@@ -84,14 +91,16 @@ function NewProject() {
             .child(image_project.name)
             .getDownloadURL()
             .then(fireBaseUrl => {
-                setUrl(fireBaseUrl);
+                setLoading(false);
+                window.location.reload(false);
+                // setUrl(fireBaseUrl);
             })
         })
     }
 
     return (
         <div>
-            <form onSubmit={handleFireBaseUpload}>
+            <form onSubmit={handleFireBaseUpload} className="">
                     <input 
                         type="text"
                         placeholder="name"
@@ -115,6 +124,10 @@ function NewProject() {
                         onChange={e => setImageProject(e.target.files[0])}
                     />
                     <button>Upload</button>
+                    {loading && 
+                        <ReactLoading type="spin" color={"black"} height={'5%'} width={'5%'} className="spin"/>
+                    }
+                    
             </form>
             <span>{url}</span>
         </div>
