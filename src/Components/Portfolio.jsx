@@ -38,6 +38,7 @@ class Portfolio extends React.Component {
             project_img,
           });
         });
+        projects.reverse();
         this.setState({
             projects
        });
@@ -91,7 +92,6 @@ class Portfolio extends React.Component {
                                 </div>
                             </div>
                         </Fragment>
-                        //  style={{backgroundImage: 'url(./projects/'+pro.thumbnail+')'}}
                         )}
                     </div>
                     

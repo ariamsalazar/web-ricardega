@@ -87,7 +87,7 @@ class Cpanel extends React.Component {
             </div>
             {/* Second Component */}
             <div className="first-part second">
-                {this.state.projects.map((pro, i) =>
+                {this.state.projects.reverse().map((pro, i) =>
                   <tr key={i}>
                     {this.onlyGetImage(pro.thumbnail, i)}
                     <div className="back-pro">

@@ -36,8 +36,7 @@ class Home extends React.Component {
         const { t } = this.props;
         return ( 
             <div className="general">
-                {/* <Buttons t={t}></Buttons> */}
-                <Carousel widgets={[Buttons]} duration={500} className="carousel-beta">
+                <Carousel widgets={[Buttons]} duration={500} auto={false} className="carousel-beta">
                     <Portfolio t={t}/>
                     <About t={t}/>
                 </Carousel>    

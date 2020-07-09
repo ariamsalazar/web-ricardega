@@ -1,5 +1,5 @@
-import React from 'react';
-import { Modal } from 'reactstrap';
+import React, { Fragment } from 'react';
+import { Modal, ModalHeader } from 'reactstrap';
 import { storage } from "../firebase-config.js";
 
 class ModalProject extends React.Component {
@@ -32,10 +32,13 @@ class ModalProject extends React.Component {
         var { handleClose, project } = this.props;
         this.onlyGetImage(project);
         return ( 
-            <Modal isOpen={handleClose} toggle={handleClose} className="modalContent">
-                <img className="pro-img-complete" id="imgUpload" src=""/>
-                <span className="btn-close" onClick={handleClose}></span>
-            </Modal>     
+            <Fragment>
+                <Modal isOpen={handleClose} toggle={handleClose} className="modalContent">
+                    <ModalHeader toggle={handleClose}></ModalHeader>
+                    <img className="pro-img-complete" id="imgUpload" src=""/>
+                    {/* <span className="btn-close" onClick={handleClose}></span> */}
+                </Modal> 
+            </Fragment>    
         );
     }
 }
