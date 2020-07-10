@@ -185,7 +185,7 @@ html {
 }
 .rows-item{
     cursor: pointer;
-    height: 325px;
+    height: auto;
     position: relative;
     background-position: center;
     background-repeat: no-repeat;
@@ -501,7 +501,7 @@ html {
     text-align: left;
 }
 .input-new-project{
-    width: 35%;
+    width: 30%;
     border-radius: 20px;
     margin-top: 2.2rem;
     outline: none;
@@ -516,6 +516,9 @@ html {
     margin-right: 20px;
     display: inline-block;
     vertical-align: middle;
+}
+.input-new-project.min{
+    width: 8%;
 }
 label[for="file-input"] {
     display: block;

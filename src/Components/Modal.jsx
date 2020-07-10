@@ -35,7 +35,7 @@ class ModalProject extends React.Component {
             <Fragment>
                 <Modal isOpen={handleClose} toggle={handleClose} className="modalContent">
                     <ModalHeader toggle={handleClose}></ModalHeader>
-                    <img className="pro-img-complete" id="imgUpload" src=""/>
+                    <img className="pro-img-complete" id="imgUpload" src="/load.gif"/>
                     {/* <span className="btn-close" onClick={handleClose}></span> */}
                 </Modal> 
             </Fragment>    

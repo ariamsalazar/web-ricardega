@@ -7,7 +7,7 @@ class Cpanel extends React.Component {
     constructor(props) {
         super(props);
         //Get DB Instance
-        this.ref = firebase.firestore().collection('projects').orderBy('thumbnail', 'desc');
+        this.ref = firebase.firestore().collection('projects').orderBy('numberAsInt', 'desc');
         this.unsubscribe = null;
         this.state = { 
             projects: [],

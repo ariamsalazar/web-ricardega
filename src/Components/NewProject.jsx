@@ -8,6 +8,7 @@ function NewProject() {
     const [image_project, setImageProject] = useState(null);
     const [url, setUrl] = useState("");
     const [name, setName] = useState("");
+    const [id_order, setIdOrder] = useState(0);
     const [date, setDate] = useState("");
     const [loading, setLoading] = useState(false);
     // this.ref = firebase.firestore().collection('projects');
@@ -32,26 +33,28 @@ function NewProject() {
         e.preventDefault();
         var new_date = getCurrentDate();
         var thumbnail = image.name;
-        
         var project_img = image_project.name;
+        
+        console.log(name);
+        var numberAsInt = parseInt(id_order);
+        console.log(numberAsInt);  
+
         setDate(new_date);
         setLoading(true);
-        //Add Project To DB Firebase
+        
+        // Add Project To DB Firebase
         firebase.firestore().collection('projects').add({
             name,
             thumbnail,
             project_img,
-            new_date
+            new_date,
+            numberAsInt
           }).then((docRef) => {
-            this.setState({
-              name: '',
-              image: '',
-              image_project: '',
-              date: ''
-            });
+            console.log('Agrego >> '+docRef);
             setName(""); 
             setImage("");
             setImageProject("");
+            setIdOrder(0);
           })
           .catch((error) => {
             console.error("Error adding document: ", error);
@@ -94,8 +97,6 @@ function NewProject() {
             })
         })
     }
-    // console.log('Prooooo >> '+image_project.name)
-    // console.log(image.name)
     return (
         <div>
             <form onSubmit={handleFireBaseUpload} className="form-new-project">
@@ -108,6 +109,15 @@ function NewProject() {
                         value={name}
                         className="input-new-project"
                         onChange={e => setName(e.target.value)}
+                    />
+                    <input 
+                        type="number"
+                        placeholder="ORD"
+                        name="id_order"
+                        id="id_order"
+                        value={id_order}
+                        className="input-new-project min"
+                        onChange={e => setIdOrder(e.target.value)}
                     />
                     <div className="box-input">
                         <label className="label-i">Add Thumbnail</label>

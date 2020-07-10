@@ -7,7 +7,7 @@ class Portfolio extends React.Component {
     constructor(props) {
         super(props);
         //Get DB Instance
-        this.ref = firebase.firestore().collection('projects').orderBy('thumbnail', 'desc');
+        this.ref = firebase.firestore().collection('projects').orderBy('numberAsInt', 'desc');
         this.unsubscribe = null;
         this.state = {
             showModal: false,
@@ -57,6 +57,7 @@ class Portfolio extends React.Component {
     }
   
     render() { 
+        console.log(this.state.projects);
         const { t } = this.props;  
         return ( 
             <div style={{backgroundColor: '#fff'}}>
