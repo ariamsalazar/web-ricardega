@@ -77,7 +77,7 @@ class Portfolio extends React.Component {
                         </span>
                     </div>
                     {/* Grid Projects */}
-                    <div className="container-rows">
+                    <div className="container-rows">    
                         {this.state.projects.map((pro, i) =>
                         <Fragment>
                             {this.onlyGetImage(pro.thumbnail, i)}
@@ -86,7 +86,7 @@ class Portfolio extends React.Component {
                             }
                             key={i}
                             >   
-                                <img className="pic-pro" id={`img-${i}`} src=""/> 
+                                <img className="pic-pro" id={`img-${i}`} src="./load.gif"/> 
                                 <div className="overlay">
                                 <div className="text">{pro.name}</div>
                                 </div>
