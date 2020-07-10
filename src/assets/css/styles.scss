@@ -915,7 +915,7 @@ input[type="file"]::-ms-browse {
         height: 5rem;
     }
     .container-about {
-        height: calc(100vh - 5rem);
+        height: calc(100vh - 4rem);
         margin-top: 4rem;
     }
     .container-about .picture {
@@ -982,6 +982,12 @@ input[type="file"]::-ms-browse {
     }
     .text {
         font-size: .6rem;
+    }
+    .modal-header .close {
+        padding: 1rem 1rem;
+        right: 2.5rem;
+        position: fixed;
+        margin: -1rem -1rem -1rem auto;
     }
 
 }
