@@ -32,8 +32,8 @@ function NewProject() {
         e.preventDefault();
         var new_date = getCurrentDate();
         var thumbnail = image.name;
+        
         var project_img = image_project.name;
-
         setDate(new_date);
         setLoading(true);
         //Add Project To DB Firebase
@@ -49,17 +49,14 @@ function NewProject() {
               image_project: '',
               date: ''
             });
-            console.log('Agrego >> '+docRef);
             setName(""); 
             setImage("");
             setImageProject("");
-            // this.props.history.push("/")
           })
           .catch((error) => {
             console.error("Error adding document: ", error);
         });
-        
-        
+        // Upload Images To Firebase
         const uploadTask = storage.ref(`/images/${image.name}`).put(image);
         uploadTask.on(
         'state_changed', 
@@ -97,35 +94,46 @@ function NewProject() {
             })
         })
     }
-
+    // console.log('Prooooo >> '+image_project.name)
+    // console.log(image.name)
     return (
         <div>
-            <form onSubmit={handleFireBaseUpload} className="">
+            <form onSubmit={handleFireBaseUpload} className="form-new-project">
+                    <span className="title-form">Upload content</span>
                     <input 
                         type="text"
-                        placeholder="name"
+                        placeholder="Project Name"
                         name="name"
                         id="name"
                         value={name}
+                        className="input-new-project"
                         onChange={e => setName(e.target.value)}
                     />
-                    <input 
-                        type="file"
-                        placeholder="image"
-                        id="image"
-                        name="image"
-                        onChange={e => setImage(e.target.files[0])}
-                    />
-                    <input 
-                        type="file"
-                        placeholder="image_project"
-                        id="image_project"
-                        name="image_project"
-                        onChange={e => setImageProject(e.target.files[0])}
-                    />
-                    <button>Upload</button>
+                    <div className="box-input">
+                        <label className="label-i">Add Thumbnail</label>
+                        <input 
+                            type="file"
+                            placeholder="image"
+                            id="image"
+                            name="image"
+                            className="btn-upload"
+                            onChange={e => setImage(e.target.files[0])}
+                        />
+                    </div>
+                    <div className="box-input">
+                        <label className="label-i">Add Project</label>
+                        <input 
+                            type="file"
+                            placeholder="image_project"
+                            id="image_project"
+                            name="image_project"
+                            className="btn-upload"
+                            onChange={e => setImageProject(e.target.files[0])}
+                        />
+                    </div>
+                    <input className="btn-new" type="submit" value="Upload"/>
                     {loading && 
-                        <ReactLoading type="spin" color={"black"} height={'5%'} width={'5%'} className="spin"/>
+                        <ReactLoading type="spin" color={"black"} height={'3%'} width={'3%'} className="spin" />
                     }
                     
             </form>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import firebase from '../firebase-config';
 import { storage } from "../firebase-config";
 import NewProject from './NewProject';
@@ -41,7 +41,6 @@ class Cpanel extends React.Component {
         this.setState({
             projects
         });
-        // this.getImages(projects);
     }
     
     // Delete Project Function
@@ -56,7 +55,6 @@ class Cpanel extends React.Component {
     getImages(projects){
         this.state.projects.map((pro, i) => (
             storage.ref().child("/images/"+pro.thumbnail).getDownloadURL().then((url) => {
-                // state[image] = url
                 this.setState({
                     images: [...this.state.images, url]
                 })
@@ -78,7 +76,6 @@ class Cpanel extends React.Component {
         this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate);
     }
     render() {
-        console.log(this.state.projects);
         const { projects } = this.state;
         return ( 
         <div>
@@ -96,10 +93,10 @@ class Cpanel extends React.Component {
                         <div className="project-admin">
                              {this.onlyGetImage(pro.thumbnail, i)}
                             <button className="btn-option" onClick={this.delete.bind(this, pro.key)}>Delete</button>
-                            <button className="btn-option">Edit</button>
+                            {/* <button className="btn-option">Edit</button> */}
                             <img className="img-admin" id={`img${i}`} src="" />
                             <span className="av name-admin">{pro.name}</span>
-                            <span className="av name-admin date">- updated on: {pro.new_date}</span>
+                            <span className="av name-admin date">- uploaded on: {pro.new_date}</span>
                         </div>
                     )
                     }
