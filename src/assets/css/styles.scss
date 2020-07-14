@@ -811,7 +811,7 @@ input[type="file"]::-ms-browse {
     }
     .rows-item {
         cursor: pointer;
-        height: 185px;
+        height: auto;
     }
     .text {
         font-size: .65rem;
@@ -827,7 +827,7 @@ input[type="file"]::-ms-browse {
         height: 100%;
         vertical-align: top;
         width: 60%;
-        padding-top: 5rem;
+        padding-top: 0;
         display: inline-block;
     }
     .container-about .picture {
