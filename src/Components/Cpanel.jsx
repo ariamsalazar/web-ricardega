@@ -28,14 +28,15 @@ class Cpanel extends React.Component {
     onCollectionUpdate = (querySnapshot) => {
         const projects = [];
         querySnapshot.forEach((doc) => {
-          const { name, thumbnail, project_img, new_date } = doc.data();
+          const { name, thumbnail, project_img, new_date, numberAsInt } = doc.data();
           projects.push({
             key: doc.id,
             doc, // DocumentSnapshot
             name,
             thumbnail,
             project_img,
-            new_date
+            new_date,
+            numberAsInt
           });
         });
         this.setState({
@@ -95,7 +96,7 @@ class Cpanel extends React.Component {
                             <button className="btn-option" onClick={this.delete.bind(this, pro.key)}>Delete</button>
                             {/* <button className="btn-option">Edit</button> */}
                             <img className="img-admin" id={`img${i}`} src="/load.gif" />
-                            <span className="av name-admin">{pro.name}</span>
+                            <span className="av name-admin">{pro.numberAsInt} {pro.name}</span>
                             <span className="av name-admin date">- uploaded on: {pro.new_date}</span>
                         </div>
                     )

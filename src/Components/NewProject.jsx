@@ -37,8 +37,7 @@ function NewProject() {
         
         console.log(name);
         var numberAsInt = parseInt(id_order);
-        console.log(numberAsInt);  
-
+    
         setDate(new_date);
         setLoading(true);
         

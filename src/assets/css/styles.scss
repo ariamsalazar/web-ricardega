@@ -276,7 +276,7 @@ html {
 .modal-content{
     position: initial !important;
     height: auto;
-    background-color: transparent !important;
+    background-color: $white !important;
 }
 .modalContent .pro-img-complete{
     height: 100%;
@@ -748,7 +748,18 @@ input[type="file"]::-ms-browse {
         padding-top: 11.5rem;
     }
     .rows-item{
-        height: 495px;
+        height: auto;
+    }
+    .modal-dialog{
+        max-width: 1100px !important;
+        margin: 8rem auto !important;
+        border-radius: 0 !important;
+        position: initial !important;
+    }
+    .modal-header {
+        position: fixed;
+        width: 67rem !important;
+        border-bottom: 1px solid transparent !important;
     }
     .footer-main{
         font-size: 1rem;
