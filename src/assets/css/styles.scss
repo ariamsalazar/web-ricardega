@@ -300,7 +300,7 @@ html {
 }
 .modal-header .close {
     background-color: #9E9E9E;
-    color: #9E9E9E;
+    color: transparent;
     text-shadow: none;
     border-radius: 100%;
     width: 40px;
@@ -775,26 +775,26 @@ input[type="file"]::-ms-browse {
         font-size: .9rem;
     }
     .container-about .about .text-big-h{
-        font-size: 15rem;
+        font-size: 13.5rem;
     }
     .about .text-about {
-        font-size: 1.44rem;
+        font-size: 1.35rem;
         width: 65%;
         margin-top: 0px;
         line-height: 36px;
     }
     .title-middle{
-        font-size: 3.5rem;
+        font-size: 3.3rem;
         margin-top: 5rem;
     }
     .title-small{
-        font-size: 1.44rem;
+        font-size: 1.35rem;
     }
     .rr {
-        width: 33px;
-        height: 33px;
+        width: 30px;
+        height: 30px;
         margin-top: 20px;
-        margin-right: 24px;
+        margin-right: 23px;
     }
 }
 /* MEDIUM SCREEN > TABLETS */

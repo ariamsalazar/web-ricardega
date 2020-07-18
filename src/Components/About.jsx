@@ -22,7 +22,7 @@ class About extends React.Component {
                         <p className="text-about">
                             I'm a minimalist designer, with main focus on logo Design and Branding, I love simplicity. I think is the key for a great work. Less is more. 
                             <br/><br/>
-                            Designing is my way of expressing my perception about nature, I love to work because I love design and for me, designing is not my job, it's my passion.
+                            Designing is my way of expressing my perception about nature, I love to work because I love design and for me, designing is not my job, design is who I am.
                         </p>
 
                         <span className="title-middle">Get in touch</span>
