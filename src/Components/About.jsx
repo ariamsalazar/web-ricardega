@@ -6,7 +6,7 @@ class About extends React.Component {
         this.state = {  }
     }
     render() { 
-        const { t } = this.props;
+        // const { t } = this.props;
         return ( 
             <div className="layout-2">
                 {/* About  <span> {t('home.title')}</span>  */}
@@ -28,7 +28,9 @@ class About extends React.Component {
                         <span className="title-middle">Get in touch</span>
                         <span className="title-small">ricardega@gmail.com</span>
                         <div className="container-rr">
-                            <a className="rr r1" href="/"></a><a className="rr r2" href="/"></a><a className="rr r3" href="/"></a>
+                            <a className="rr r1" href="/"></a>
+                            <a className="rr r2" href="/"></a>
+                            <a className="rr r3" href="/"></a>
                         </div>
                     </div>
                 </div>

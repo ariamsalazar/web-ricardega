@@ -29,7 +29,7 @@ const styles = {
 }
 
 export default function Buttons (props) {
-  const { index, total, loop, prevHandler, nextHandler, t } = props;
+  const { index, total, loop, prevHandler, nextHandler } = props;
   return (
     <Fragment>
       { (loop || index !== total - 1) && (

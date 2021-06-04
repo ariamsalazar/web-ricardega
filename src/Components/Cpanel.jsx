@@ -95,7 +95,7 @@ class Cpanel extends React.Component {
                              {this.onlyGetImage(pro.thumbnail, i)}
                             <button className="btn-option" onClick={this.delete.bind(this, pro.key)}>Delete</button>
                             {/* <button className="btn-option">Edit</button> */}
-                            <img className="img-admin" id={`img${i}`} src="/load.gif" />
+                            <img className="img-admin" id={`img${i}`} src="/load.gif" alt="Img" />
                             <span className="av name-admin">{pro.numberAsInt} {pro.name}</span>
                             <span className="av name-admin date">- uploaded on: {pro.new_date}</span>
                         </div>

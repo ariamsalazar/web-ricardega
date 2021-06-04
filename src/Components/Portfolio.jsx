@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import ModalProject from '../Components/Modal';
 import firebase, { storage } from "../firebase-config.js";
-import Skeleton from 'react-loading-skeleton';
 
 class Portfolio extends React.Component {
     constructor(props) {
@@ -57,8 +56,7 @@ class Portfolio extends React.Component {
     }
   
     render() { 
-        console.log(this.state.projects);
-        const { t } = this.props;  
+        // const { t } = this.props;  
         return ( 
             <div style={{backgroundColor: '#fff'}}>
                 {/* Project Modal  */}
@@ -87,7 +85,7 @@ class Portfolio extends React.Component {
                             }
                             key={i}
                             >   
-                                <img className="pic-pro" id={`img-${i}`} src="./load.gif"/> 
+                                <img className="pic-pro" id={`img-${i}`} src="./load.gif" alt="Img"/> 
                                 <div className="overlay">
                                 <div className="text">{pro.name}</div>
                                 </div>

@@ -6,18 +6,18 @@ function NewProject() {
     // Declaración de una variable de estado que llamaremos "count"
     const [image, setImage] = useState(null);
     const [image_project, setImageProject] = useState(null);
-    const [url, setUrl] = useState("");
+    const [url] = useState("");
     const [name, setName] = useState("");
     const [id_order, setIdOrder] = useState(0);
-    const [date, setDate] = useState("");
+    const [setDate] = useState("");
     const [loading, setLoading] = useState(false);
     // this.ref = firebase.firestore().collection('projects');
 
-    const handleChange = e => {
-        if (e.target.files[0]){
-            setImage(e.target.files[0]);
-        }
-    }
+    // const handleChange = e => {
+    //     if (e.target.files[0]){
+    //         setImage(e.target.files[0]);
+    //     }
+    // }
 
     const getCurrentDate = (separator='-') => {
 
