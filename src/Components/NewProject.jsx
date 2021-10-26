@@ -6,10 +6,10 @@ function NewProject() {
     // Declaración de una variable de estado que llamaremos "count"
     const [image, setImage] = useState(null);
     const [image_project, setImageProject] = useState(null);
-    const [url] = useState("");
+    const [url, setUrl] = useState("");
     const [name, setName] = useState("");
     const [id_order, setIdOrder] = useState(0);
-    const [setDate] = useState("");
+    const [date, setDate] = useState("");
     const [loading, setLoading] = useState(false);
     // this.ref = firebase.firestore().collection('projects');
 
@@ -35,12 +35,9 @@ function NewProject() {
         var thumbnail = image.name;
         var project_img = image_project.name;
         
-        console.log(name);
         var numberAsInt = parseInt(id_order);
-    
         setDate(new_date);
         setLoading(true);
-        
         // Add Project To DB Firebase
         firebase.firestore().collection('projects').add({
             name,
@@ -49,7 +46,6 @@ function NewProject() {
             new_date,
             numberAsInt
           }).then((docRef) => {
-            console.log('Agrego >> '+docRef);
             setName(""); 
             setImage("");
             setImageProject("");
